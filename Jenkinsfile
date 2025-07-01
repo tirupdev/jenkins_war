@@ -1,14 +1,14 @@
 pipeline {
     agent any
-    stages {
-        stage('Checkout Code') {
+    stages {    # Define the stages of the pipeline
+        stage('Checkout Code') { # Checkout the code from GitHub
             steps {
-                git 'https://github.com/tirupdev/gha_ec2tomcat-war.git'
+                git branch: 'main', url: 'https://github.com/tirupdev/gha_ec2tomcat-war.git'
             }
         }
-        stage('Build WAR') {
+        stage('Build WAR') {    # Build the WAR file using Maven
             steps {
-                sh 'mvn clean package'
+                sh 'mvn clean package' # This command cleans the project and builds the WAR file
             }
         }
     }
