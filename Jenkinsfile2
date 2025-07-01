@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    stages {
+        stage('System Info') {
+            steps {
+                sh '''
+                echo "Current system uptime:"
+                uptime
+                echo "Files in /tmp directory:"
+                ls -lh /tmp
+                '''
+            }
+        }
+    }
+}
